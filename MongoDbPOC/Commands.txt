@@ -1,4 +1,4 @@
-mongod --dbpath <data_directory_path>
+mongod --dbpath <Directory>
 mongo
 use StudentDb
 db.createCollection('Student')
