@@ -1,2 +1,2 @@
 # NetCoreMongDB
-MongoDB With .Net Core Example
+MongoDB With .Net Core Web API Example
