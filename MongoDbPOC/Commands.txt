@@ -1,0 +1,7 @@
+mongod --dbpath <data_directory_path>
+mongo
+use StudentDb
+db.createCollection('Student')
+db.Student.insertMany([{'Firstname':'Guillaume','Lastname':'Noel','Formation':'Informatique de gestion'},{'Firstname':'Raoul','Lastname':'BastaYa','Formation':'Informatique de gestion'}])
+db.Student.find({_id:'5da705382f2c4d2950f8b68f'}).pretty()
+ 
