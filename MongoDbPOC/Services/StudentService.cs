@@ -7,7 +7,7 @@ using MongoDbPOC.Models;
 
 namespace MongoDbPOC.Services
 {
-	public class StudentService
+	public class StudentService : IStudentService
 	{
 		private readonly IMongoCollection<Student> _students;
 
