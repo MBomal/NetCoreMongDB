@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
@@ -21,7 +20,7 @@ namespace MongoDbPOC.Services
 		public List<Student> Get() =>
 			_students.Find(student => true).ToList();
 		public Student Get(string id) =>
-			_students.Find<Student>(student => student.Id == id).FirstOrDefault();
+			_students.Find(student => student.Id == id).FirstOrDefault();
 		public Student Create(Student studentInput)
 		{
 			_students.InsertOne(studentInput);
@@ -33,5 +32,8 @@ namespace MongoDbPOC.Services
 			_students.DeleteOne(student => student.Id == studentInput.Id);
 		public void Remove(string id) =>
 			_students.DeleteOne(student => student.Id == id);
-	}
+        public async Task RemoveAsync(string id) =>
+         await _students.DeleteOneAsync(student => student.Id == id);
+    }
+
 }

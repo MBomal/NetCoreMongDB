@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MongoDbPOC.Models;
 using MongoDbPOC.Services;
@@ -53,7 +54,7 @@ namespace MongoDbPOC.Controllers
 			return Ok(student);
 		}
 		[HttpDelete("{id:length(24)}")]
-		public IActionResult Delete(string id)
+		public async Task<IActionResult> DeleteAsync(string id)
 		{
 			var student = _studentService.Get(id);
 
@@ -62,7 +63,7 @@ namespace MongoDbPOC.Controllers
 				return NotFound();
 			}
 
-			_studentService.Remove(student.Id);
+			await _studentService.RemoveAsync(student.Id);
 
 			return NoContent();
 		}
